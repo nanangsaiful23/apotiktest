@@ -4,7 +4,13 @@
     <groupId>com.mycompany</groupId>
     <artifactId>mavenproject1</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <packaging>jar</packaging>
+     <scm>
+        <connection>scm:git:git@github.com:nanangsaiful23/apotiktes.git</connection>
+        <developerConnection>scm:git:git@github.com:nanangsaiful23/apotiktes.git</developerConnection>
+        <url>hhttps://github.com/nanangsaiful23/apotiktest</url>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -17,5 +23,6 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
-    <name>apotik</name>
+    <name>apotiktest</name>
+    <url>https://github.com/nanangsaiful23/apotiktest</url>
 </project>
