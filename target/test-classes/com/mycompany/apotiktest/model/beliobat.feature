@@ -1,6 +1,6 @@
-Feature: buy ticket
+Feature: buy
 
-Scenario: buy 
+Scenario: beliobat
 
     Given tickets can be purchased
 
