@@ -1,15 +1,7 @@
-Kamal   - 1301150014
-
-
-Victor  - 1301150084
-
-
-Vina    - 1301154560
-
-
-Gustav  - 1301154112
-
-
-Fathur  - 1301154406
+1301154154 nanang saiful h
+1301154448 qotrunnada firly
+1301154504 febriana putri
+1301154574 diah eka
+1301154518 rina puspa
 
 IF 39-14
