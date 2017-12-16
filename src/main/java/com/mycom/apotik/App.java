@@ -1,6 +1,5 @@
 package com.mycom.apotik;
 
-
 import java.beans.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -9,24 +8,26 @@ import java.util.Scanner;
 import javax.tools.Diagnostic;
 
 public class App {
-   private List <Obat> dataobat=new ArrayList();
-   private List<Pegawai> datapegawai=new ArrayList();
-   private List<Pembeli> datapembeli= new ArrayList();
-   private List<Distributor> dataDistributors= new ArrayList();
-   private Database db;
-   Scanner input= new Scanner(System.in);
-   
-   private static int idtransaksi=1;
+
+    private List<Obat> dataobat = new ArrayList();
+    private List<Pegawai> datapegawai = new ArrayList();
+    private List<Pembeli> datapembeli = new ArrayList();
+    private List<Distributor> dataDistributors = new ArrayList();
+    private Database db;
+    Scanner input = new Scanner(System.in);
+
+    private static int idtransaksi = 1;
+
     public App() {
-        this.db=new Database();
-    
+        this.db = new Database();
+
         db.connect();
-     
-        this.datapegawai=db.loadPegawai();
-       
-        this.datapembeli=db.loadPembeli();
-        this.dataobat=db.loadobat();
-        this.dataDistributors=db.loaddistributor();
+
+        this.datapegawai = db.loadPegawai();
+
+        this.datapembeli = db.loadPembeli();
+        this.dataobat = db.loadobat();
+        this.dataDistributors = db.loaddistributor();
         System.out.println("sukses");
     }
 
@@ -45,7 +46,6 @@ public class App {
     public List<Obat> getDataobat() {
         return dataobat;
     }
-   
 
     public List<Pegawai> getDatapegawai() {
         return datapegawai;
@@ -63,106 +63,127 @@ public class App {
         this.dataobat = dataobat;
     }
 
-
-    public void Masukkanobat(Obat o){
+    public void Masukkanobat(Obat o) {
         db.saveObat(o);
         this.dataobat.add(o);
-        this.dataobat=db.loadobat();
+        this.dataobat = db.loadobat();
     }
-    public void Liatdataobat(){
+
+    public void Liatdataobat() {
         for (Obat dataobat1 : dataobat) {
             System.out.println(dataobat1.toString());
         }
     }
-    public void inputPegawai( Pegawai p){
+
+    public void inputPegawai(Pegawai p) {
         db.savePegawai(p);
         this.datapegawai.add(p);
-        this.datapegawai=db.loadPegawai();
-        }   
-    public void liatdata(){
-        for (Pegawai p: datapegawai) {
+        this.datapegawai = db.loadPegawai();
+    }
+
+    public void liatdata() {
+        for (Pegawai p : datapegawai) {
             System.out.println(p.toString());
         }
     }
-    public void masukkandatadistributor(String nama, String kontak, String alamat,String password){
-        Distributor d= new Distributor(nama, kontak, alamat, password);
+
+    public void masukkandatadistributor(String nama, String kontak, String alamat, String password) {
+        Distributor d = new Distributor(nama, kontak, alamat, password);
         db.savedistributor(d);
         this.dataDistributors.add(d);
-        this.dataDistributors=db.loaddistributor();
+        this.dataDistributors = db.loaddistributor();
     }
 
-    public void masukkanDataPembeli(Pembeli p){
-        db.savePembeli(p);
-        this.datapembeli.add(p);       
+    public boolean masukkanDataPembeli(Pembeli p) {
+        try {
+            db.savePembeli(p);
+            this.datapembeli.add(p);
+            return true;
+
+        } catch (Exception e) {
+            return false;
+        }
+
     }
-    public void liatdataPembeli(){
+
+    public void liatdataPembeli() {
         for (Pembeli p : datapembeli) {
             System.out.println(p.toString());
         }
     }
-    public Pegawai caripegawai(int id){
-        boolean t=false;
-        for (Pegawai p :datapegawai) {
-            if (p.getIdpegawai()==id)
-                return p;
-        }
-        return null;
-    }
-    public Pembeli caripembeli(int id){
 
-        for (Pembeli p : datapembeli) {
-            if (p.getId()==id){
-                return p;                
+    public Pegawai caripegawai(int id) {
+        boolean t = false;
+        for (Pegawai p : datapegawai) {
+            if (p.getIdpegawai() == id) {
+                return p;
             }
         }
         return null;
     }
-    public Obat cariobat( int id){ 
+
+    public Pembeli caripembeli(int id) {
+
+        for (Pembeli p : datapembeli) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Obat cariobat(int id) {
         for (Obat O1 : dataobat) {
-            if(O1.getIdobat()==id){
+            if (O1.getIdobat() == id) {
                 return O1;
             }
         }
         return new Obat(1);
     }
-    public List<Obat> caridataobat(int id){
-        List<Obat> dt= new ArrayList();
+
+    public List<Obat> caridataobat(int id) {
+        List<Obat> dt = new ArrayList();
         for (Obat dataobat1 : dataobat) {
-            if (dataobat1.getIdobat()==id){
+            if (dataobat1.getIdobat() == id) {
                 dt.add(dataobat1);
             }
         }
         return dt;
     }
-    
-    public Distributor caridistributor(int id){
+
+    public Distributor caridistributor(int id) {
         for (Distributor d1 : dataDistributors) {
-            if (d1.getIddistributor()==id){
+            if (d1.getIddistributor() == id) {
                 return d1;
             }
         }
         return null;
     }
 
-    
-    public void tambahRestock(Pegawai p,Distributor d,Obat o, int n){
-      
-      Pegawai pe;
-      pe=caripegawai(p.getIdpegawai());
-      db.saverestock(new Restock(d, o, pe));
-      pe.Createstock(d, o, p);
-      o.setJumlah(o.getJumlah()+n);
-        for (Obat dataobat1 : dataobat) {
-            db.updateobat(dataobat1);
-        }
-    }
-    public boolean tambahtransaksi(Pegawai pg,Pembeli p,List<Obat> o,int jumlah,int harga){
+    public boolean tambahRestock(Pegawai p, Distributor d, Obat o, int n) {
         try {
-             pg.Createjualbeli(p, o, jumlah,harga);
+            Pegawai pe;
+            pe = caripegawai(p.getIdpegawai());
+            db.saverestock(new Restock(d, o, pe));
+            pe.Createstock(d, o, p);
+            o.setJumlah(o.getJumlah() + n);
+            for (Obat dataobat1 : dataobat) {
+                db.updateobat(dataobat1);
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
+    public boolean tambahtransaksi(Pegawai pg, Pembeli p, List<Obat> o, int jumlah, int harga) {
+        try {
+            pg.Createjualbeli(p, o, jumlah, harga);
             db.savetransaksi(new Jualbeli(p, pg, o, harga, jumlah));
-            int id= db.maxid();
+            int id = db.maxid();
             for (Obat o1 : o) {
-                db.savedetiltransaksi(o1,id);
+                db.savedetiltransaksi(o1, id);
             }
             for (Obat o2 : dataobat) {
                 db.updateobat(o2);
@@ -171,6 +192,6 @@ public class App {
         } catch (Exception e) {
             return false;
         }
-       
+
     }
 }

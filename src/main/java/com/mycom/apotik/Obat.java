@@ -74,4 +74,10 @@ public class Obat {
         else
             return false;
     }
+    public boolean islimited(){
+        if(this.jumlah<2)
+            return true;
+        else
+            return false;
+    }
 }
