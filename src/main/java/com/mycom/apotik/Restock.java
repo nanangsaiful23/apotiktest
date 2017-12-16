@@ -1,6 +1,5 @@
 package com.mycom.apotik;
 
-import com.sun.corba.se.spi.oa.OADefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +10,10 @@ public class Restock {
     private Pegawai pegawai;
 
     public Restock() {
+    }
+
+    public Restock(int idtransaksi) {
+        this.idtransaksi = idtransaksi;
     }
 
     

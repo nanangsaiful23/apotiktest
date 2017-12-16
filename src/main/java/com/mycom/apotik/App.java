@@ -1,6 +1,5 @@
 package com.mycom.apotik;
 
-import com.sun.xml.internal.ws.message.saaj.SAAJHeader;
 
 import java.beans.Statement;
 import java.sql.ResultSet;
@@ -20,13 +19,15 @@ public class App {
    private static int idtransaksi=1;
     public App() {
         this.db=new Database();
-        System.out.println("asd");
+    
         db.connect();
-        System.out.println("asd");
+     
         this.datapegawai=db.loadPegawai();
+       
         this.datapembeli=db.loadPembeli();
         this.dataobat=db.loadobat();
         this.dataDistributors=db.loaddistributor();
+        System.out.println("sukses");
     }
 
     public List<Distributor> getDataDistributors() {
@@ -62,9 +63,7 @@ public class App {
         this.dataobat = dataobat;
     }
 
-//    public void setDataDistributors(List<Distributor> dataDistributors) {
-//        this.dataDistributors = dataDistributors;
-//    }
+
     public void Masukkanobat(Obat o){
         db.saveObat(o);
         this.dataobat.add(o);
@@ -91,11 +90,7 @@ public class App {
         this.dataDistributors.add(d);
         this.dataDistributors=db.loaddistributor();
     }
-//    public void liatDatadistributor(){
-//        for (Distributor d :dataDistributors) {
-//            System.out.println(d.toString());
-//        }
-//    }
+
     public void masukkanDataPembeli(Pembeli p){
         db.savePembeli(p);
         this.datapembeli.add(p);       
@@ -122,13 +117,13 @@ public class App {
         }
         return null;
     }
-    public Obat cariobat( int id){
+    public Obat cariobat( int id){ 
         for (Obat O1 : dataobat) {
             if(O1.getIdobat()==id){
                 return O1;
             }
         }
-        return null;
+        return new Obat(1);
     }
     public List<Obat> caridataobat(int id){
         List<Obat> dt= new ArrayList();
@@ -161,15 +156,21 @@ public class App {
             db.updateobat(dataobat1);
         }
     }
-    public void tambahtransaksi(Pegawai pg,Pembeli p,List<Obat> o,int jumlah,int harga){
-        pg.Createjualbeli(p, o, jumlah,harga);
-        db.savetransaksi(new Jualbeli(p, pg, o, harga, jumlah));
-        int id= db.maxid();
-        for (Obat o1 : o) {
-            db.savedetiltransaksi(o1,id);
+    public boolean tambahtransaksi(Pegawai pg,Pembeli p,List<Obat> o,int jumlah,int harga){
+        try {
+             pg.Createjualbeli(p, o, jumlah,harga);
+            db.savetransaksi(new Jualbeli(p, pg, o, harga, jumlah));
+            int id= db.maxid();
+            for (Obat o1 : o) {
+                db.savedetiltransaksi(o1,id);
+            }
+            for (Obat o2 : dataobat) {
+                db.updateobat(o2);
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
         }
-        for (Obat o2 : dataobat) {
-            db.updateobat(o2);
-        }
+       
     }
 }

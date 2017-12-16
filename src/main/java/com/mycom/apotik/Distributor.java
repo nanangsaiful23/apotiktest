@@ -9,6 +9,10 @@ public class Distributor extends Person{
 
     public Distributor() {
     }
+
+    public Distributor(int iddistributor) {
+        this.iddistributor = iddistributor;
+    }
     
     
     public Distributor(int iddistributor, String nama, String kontak, String alamat) {

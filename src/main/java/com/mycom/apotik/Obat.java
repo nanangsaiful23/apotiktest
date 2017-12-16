@@ -68,5 +68,10 @@ public class Obat {
         return "idobat :"+idobat +"\nnama :"+ nama+ " \njenis obat :"+jenisobat+
                 "\njumlah :"+jumlah+"\nharga :"+harga;
     }
-    
+    public boolean evailable(int n){
+        if (this.jumlah>n)
+            return true;
+        else
+            return false;
+    }
 }

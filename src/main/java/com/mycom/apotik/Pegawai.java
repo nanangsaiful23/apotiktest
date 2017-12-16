@@ -31,13 +31,19 @@ public class Pegawai extends Person{
         this.jabatan = jabatan;
         this.gaji = gaji;
         this.Password = Password;
+         this.datarestock= new ArrayList();
+        this.datajualbeli=new ArrayList();
     }
 
     public Pegawai(int idpegawai) {
         this.idpegawai = idpegawai;
+         this.datarestock= new ArrayList();
+        this.datajualbeli=new ArrayList();
     }
     
     public Pegawai() {
+         this.datarestock= new ArrayList();
+        this.datajualbeli=new ArrayList();
     }
 
     public List<Jualbeli> getDatajualbeli() {

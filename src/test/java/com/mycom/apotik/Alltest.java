@@ -7,53 +7,75 @@ package com.mycom.apotik;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.*; // And But Given When  Then
+import java.util.ArrayList;
+import junit.framework.Assert;
 
 
 public class Alltest {
-    @Given("^pengguna meminta medicine$")
-    public void pengguna_meminta_medicine() throws Exception {
-        // Write code here that turns the phrase above into concrete actions
+    App app= new App();
+    ArrayList<Obat> daftarobat;
+    Obat o=new Obat();
+    Pegawai pg=new Pegawai();
+    Pembeli p=new Pembeli();
 
-    }
+@Given("^user take medicine with id \"([^\"]*)\"$")
+public void user_take_medicine_with_id(String arg1) throws Exception {
+    int expected=Integer.parseInt(arg1);
+    o=app.cariobat(Integer.parseInt(arg1));
+    int result=o.getIdobat();
+    Assert.assertEquals(expected, result);
+}
+@When("^medicine available \"([^\"]*)\"$")
+public void medicine_available(String arg1) throws Exception {
+    boolean expected =true;
+    boolean result= o.evailable(Integer.parseInt(arg1));
+    Assert.assertEquals(expected, result);
+    
+}
 
-    @When("^medicine tersedia$")
-    public void medicine_tersedia() throws Exception {
-        // Write code here that turns the phrase above into concrete actions
+@Then("^employee input data$")
+public void employee_input_data() throws Exception {
+     daftarobat=new ArrayList();
+     daftarobat.add(o);
+    boolean expected =true;
+    boolean result= app.tambahtransaksi(pg, p, daftarobat, 5,1000);
+    Assert.assertEquals(expected, result);
+}
 
-    }
+@Given("^distributor have medicine with id  \"([^\"]*)\"$")
+public void distributor_have_medicine_with_id(String arg1) throws Exception {
+    int expected=Integer.parseInt(arg1);
+    o=app.cariobat(Integer.parseInt(arg1));
+    int result=o.getIdobat();
+    Assert.assertEquals(expected, result);
 
-    @Then("^Petugas menginputkan data$")
-    public void petugas_menginputkan_data() throws Exception {
-        // Write code here that turns the phrase above into concrete actions
+}
 
-    }
-            @Given("^distributor membawa obat$")
-        public void distributor_membawa_obat() throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-        }
+@When("^medicine in store limited$")
+public void medicine_in_store_limited() throws Exception {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
 
-        @When("^medicine di gudang sudah siap untuk restock$")
-        public void medicine_di_gudang_sudah_siap_untuk_restock() throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-        }
+@Then("^employee note the medicine;$")
+public void employee_note_the_medicine() throws Exception {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
 
-        @Then("^Petugas menginputkan data medicine$")
-        public void petugas_menginputkan_data_medicine() throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-        }
+@Given("^user give data  id =\"([^\"]*)\" name=\"([^\"]*)\"$")
+public void user_give_data_id_name(String arg1, String arg2) throws Exception {
+    Pembeli expected=null;
+    
+    Pembeli result=app.caripembeli(Integer.parseInt(arg1));
+    Assert.assertEquals(expected, result);
+    
+ 
+}
 
-        @Given("^pengguna memberikan data$")
-        public void pengguna_memberikan_data() throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-        }
-
-        @When("^data pengguna belum tedaftar$")
-        public void data_pengguna_belum_tedaftar() throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-        }
-
-        @Then("^Petugas menginputkan data user$")
-        public void petugas_menginputkan_data_user() throws Exception {
-            // Write code here that turns the phrase above into concrete actions
-        }
+@When("^data user not available$")
+public void data_user_not_available() throws Exception {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
 }
