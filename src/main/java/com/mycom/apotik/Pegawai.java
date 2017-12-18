@@ -1,6 +1,4 @@
-
 package com.mycom.apotik;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,8 +47,7 @@ public class Pegawai extends Person{
     public List<Jualbeli> getDatajualbeli() {
         return datajualbeli;
     }
-    
-   
+      
     public void Createjualbeli(Pembeli p,List<Obat> obat,int jumlah,int harga){
        
         Jualbeli j= new Jualbeli(p, this, obat,jumlah,harga );
@@ -69,12 +66,14 @@ public class Pegawai extends Person{
         Restock r=new Restock(distributor, obat, pegawai);
         this.datarestock.add(r);
     }
+    
     public void Lihatdatapegawai() {
         System.out.println(toString());
         for (Restock r : datarestock) {
             System.out.println(r.toString());
         }    
     }
+    
     public void setGaji(double gaji) {
         this.gaji = gaji;
     }
