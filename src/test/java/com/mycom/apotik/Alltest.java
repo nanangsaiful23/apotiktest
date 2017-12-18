@@ -156,4 +156,26 @@ public void owner_input_data_employee() throws Exception {
   boolean result=app.inputPegawai(pg);
  Assert.assertEquals(expected, result); 
 }
+
+@Given("^showing see the medicine's with id=\"([^\"]*)\"$")
+public void showing_see_the_medicine_s_with_id(String arg1) throws Exception {
+   
+    int expected=Integer.parseInt(arg1);
+    o=new Obat(Integer.parseInt(arg1));
+    int result=o.getIdobat();
+    Assert.assertEquals(expected, result);
+}
+
+@When("^medicine found$")
+public void medicine_found() throws Exception {
+    int expected=o.getIdobat();
+    int result=app.cariobat(o.getIdobat()).getIdobat();
+    Assert.assertEquals(expected, result);
+}
+
+@Then("^show medicine's data belong to the selected$")
+public void show_medicine_s_data_belong_to_the_selected() throws Exception {
+    String result=o.toString();
+   Assert.assertNotNull(result);
+}
 }
