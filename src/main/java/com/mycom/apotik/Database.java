@@ -165,8 +165,8 @@ public class Database {
 //            }
             
             daftarObats.add(new Obat(1,"paramex",1000,"umum",10));
-            daftarObats.add(new Obat(2));
-            daftarObats.add(new Obat(3));
+            daftarObats.add(new Obat(2,"konidin",2000,"umum",10));
+            daftarObats.add(new Obat(3,"enervonce",2500,"umum",10));
             return daftarObats;
         } catch (Exception e) {
             throw new IllegalArgumentException("terjadi kesalahan saat load pembeli");
@@ -208,7 +208,7 @@ public class Database {
 //            while (rs.next()) {
 //                n = Integer.parseInt(rs.getString(1));
 //            }
-            return 9;
+            return 10;
         } catch (Exception e) {
             throw new IllegalArgumentException("terjadi kesalahan saat load pembeli");
         }
@@ -243,8 +243,8 @@ public class Database {
 //                daftarDistributor.add(o);
 //            }
             
-            daftarDistributor.add(new Distributor(0));
-            daftarDistributor.add(new Distributor(1));
+            daftarDistributor.add(new Distributor(0,"fadho","085741434512","bandung","124"));
+            daftarDistributor.add(new Distributor(1,"darma","085745121232","jakarta","1456"));
             return daftarDistributor;
         } catch (Exception e) {
             throw new IllegalArgumentException("terjadi kesalahan saat loaddata distributor");
