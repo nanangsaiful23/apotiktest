@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # insttalasi
 
 Step untuk mengatur maven + sonnarcube
@@ -47,6 +48,9 @@ Step untuk mengatur maven + sonnarcube
 7. Buka folder project, dan buka cmd di folder tersebut
 8. Ketikkan perintah "mvn sonar:sonar"
 9. Done!
+=======
+apotiktest
+>>>>>>> Stashed changes
 =======
 apotiktest
 >>>>>>> Stashed changes
