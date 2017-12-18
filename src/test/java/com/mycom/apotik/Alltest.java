@@ -112,5 +112,23 @@ public void employee_input_data_distributor() throws Exception {
   boolean result=app.masukkandatadistributor(d.getNama(),d.getKontak() , d.getAlamat(),"123");
  Assert.assertEquals(expected, result);
 }
+@Given("^data person  id =\"([^\"]*)\" name=\"([^\"]*)\"$")
+public void data_person_id_name(String arg1, String arg2) throws Exception {
+    pg=new Pegawai(Integer.parseInt(arg1));
+    pg.setNama(arg2);
+    Assert.assertNotNull(pg);
+}
 
+@When("^data person not available in employee$")
+public void data_person_not_available_in_employee() throws Exception {
+    Pegawai result= app.caripegawai(pg.getIdpegawai());
+     Assert.assertNull(result);
+}
+
+@Then("^owner input data employee$")
+public void owner_input_data_employee() throws Exception {
+   boolean expected= true;
+  boolean result=app.inputPegawai(pg);
+ Assert.assertEquals(expected, result); 
+}
 }

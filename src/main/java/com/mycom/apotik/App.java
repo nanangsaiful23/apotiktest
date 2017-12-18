@@ -75,11 +75,16 @@ public class App {
         }
     }
 
-    public void inputPegawai(Pegawai p) {
+    public boolean inputPegawai(Pegawai p) {
+        try {
         db.savePegawai(p);
         this.datapegawai.add(p);
         this.datapegawai = db.loadPegawai();
-    }
+        return true;
+        } catch (Exception e) {
+        return false;
+        }
+     }
 
     public void liatdata() {
         for (Pegawai p : datapegawai) {
