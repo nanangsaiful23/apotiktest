@@ -165,7 +165,7 @@ public class Database {
 //            }
             
             daftarObats.add(new Obat(1,"paramex",1000,"umum",10));
-            daftarObats.add(new Obat(2,"konidin",2000,"umum",10));
+            daftarObats.add(new Obat(2,"konidin",2000,"umum",1));
             daftarObats.add(new Obat(3,"enervonce",2500,"umum",10));
             return daftarObats;
         } catch (Exception e) {
