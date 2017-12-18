@@ -11,8 +11,6 @@ public class Pembeli extends Person{
         this.Password=Password;
     }
 
-
-
     public Pembeli() {
        
     }
@@ -55,5 +53,4 @@ public class Pembeli extends Person{
         return "id  :"+id +"\nnama : "+nama; //To change body of generated methods, choose Tools | Templates.
     }
     
-
 }
