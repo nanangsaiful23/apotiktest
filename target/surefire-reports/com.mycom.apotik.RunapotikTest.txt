@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.mycom.apotik.RunapotikTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.697 sec
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.821 sec

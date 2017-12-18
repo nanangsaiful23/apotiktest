@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.704" errors="0" skipped="0" tests="6" name="com.mycom.apotik.RunapotikTest">
+<testsuite failures="0" time="0.832" errors="0" skipped="0" tests="7" name="com.mycom.apotik.RunapotikTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_80\jre\bin"/>
@@ -61,10 +61,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.173" classname="buy medicine" name="user buy medicine"/>
-  <testcase time="0.004" classname="restock medicine" name="employee note the restock of medicine"/>
-  <testcase time="0.003" classname="restock medicine" name="employee not note the restock of medicine"/>
-  <testcase time="0.003" classname="new distributor" name="person want to join distributor"/>
-  <testcase time="0.002" classname="new member" name="user want to join member"/>
-  <testcase time="0.004" classname="new employee" name="person want to join employee"/>
+  <testcase time="0.223" classname="buy medicine" name="user buy medicine"/>
+  <testcase time="0.003" classname="buy medicine" name="user buy medicine"/>
+  <testcase time="0.005" classname="restock medicine" name="employee note the restock of medicine"/>
+  <testcase time="0.005" classname="restock medicine" name="employee not note the restock of medicine"/>
+  <testcase time="0.005" classname="new distributor" name="person want to join distributor"/>
+  <testcase time="0.005" classname="new member" name="user want to join member"/>
+  <testcase time="0.005" classname="new employee" name="person want to join employee"/>
 </testsuite>

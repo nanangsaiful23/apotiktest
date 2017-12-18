@@ -46,7 +46,17 @@ public void employee_input_data_transaction() throws Exception {
     boolean result= app.tambahtransaksi(pg, p, daftarobat, 5,1000);
     Assert.assertEquals(expected, result);
 }
+@When("^medicine not available \"([^\"]*)\"$")
+public void medicine_not_available(String arg1) throws Exception {
+    boolean expected =false;
+    boolean result= o.evailable(Integer.parseInt(arg1));
+    Assert.assertEquals(expected, result);
+}
 
+@Then("^employee not input data transaction$")
+public void employee_not_input_data_transaction() throws Exception {
+   Assert.assertTrue(true);
+}
 @Given("^distributor have medicine with id  \"([^\"]*)\"$")
 public void distributor_have_medicine_with_id(String arg1) throws Exception {
     o= new Obat();

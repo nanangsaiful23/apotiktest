@@ -25,7 +25,6 @@ public class App {
         this.datapembeli = db.loadPembeli();
         this.dataobat = db.loadobat();
         this.dataDistributors = db.loaddistributor();
-        System.out.println("sukses");
     }
 
     public List<Distributor> getDataDistributors() {
