@@ -68,10 +68,20 @@ public void employee_note_the_medicine() throws Exception {
     d=new Distributor();
     pg=new Pegawai(1);
     boolean result =app.tambahRestock(pg, d,o, 10);
-    System.out.println(result);
     Assert.assertTrue(result);
 }
+@When("^medicine in store not limited$")
+public void medicine_in_store_not_limited() throws Exception {
+    boolean result=o.islimited();
+    Assert.assertFalse(result);
+   
+}
 
+@Then("^employee not note the medicine$")
+public void employee_not_note_the_medicine() throws Exception {
+    boolean result=o.islimited();
+    Assert.assertFalse(result);
+}
 @Given("^user give data  id =\"([^\"]*)\" name=\"([^\"]*)\"$")
 public void user_give_data_id_name(String arg1, String arg2) throws Exception {
    
