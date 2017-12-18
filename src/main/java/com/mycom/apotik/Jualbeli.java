@@ -1,5 +1,4 @@
 package com.mycom.apotik;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +9,6 @@ public class Jualbeli {
  private List<Obat> obat;
  private double totalharga;
  private int jumlahobat;
-
-
 
     public Jualbeli(int idtransaksi, Pembeli pembeli, Pegawai pegawai) {
         this.idtransaksi = idtransaksi;
@@ -37,7 +34,6 @@ public class Jualbeli {
         this.jumlahobat = jumlahobat;
     }
     
-
     public Pembeli getPembeli() {
         return pembeli;
     }
@@ -50,7 +46,6 @@ public class Jualbeli {
         return jumlahobat;
     }
     
-
     public void addObat(Obat o, int j){
         if (o.getJumlah()>=j){
         this.obat.add(o);
@@ -102,7 +97,6 @@ public class Jualbeli {
                 pembeli.toString()+
                 "\njumlah obat :"+jumlahobat+
                 "\ntotal harga :"+totalharga;
-
     }
     
 }
