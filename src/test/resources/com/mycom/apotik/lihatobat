@@ -1,9 +1,0 @@
-Feature: see the medicine
-
-    Scenario: staff use see the medicine's menu
-
-      Given showing see the medicine's menu
-
-      When staff choose medicine's category
-
-      Then show medicine's data belong to the category selected
