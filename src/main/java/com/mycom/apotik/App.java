@@ -20,11 +20,8 @@ public class App {
 
     public App() {
         this.db = new Database();
-
         db.connect();
-
         this.datapegawai = db.loadPegawai();
-
         this.datapembeli = db.loadPembeli();
         this.dataobat = db.loadobat();
         this.dataDistributors = db.loaddistributor();
@@ -134,7 +131,6 @@ public class App {
     }
 
     public Pembeli caripembeli(int id) {
-
         for (Pembeli p : datapembeli) {
             if (p.getId() == id) {
                 return p;
