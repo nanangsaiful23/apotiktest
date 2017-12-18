@@ -15,7 +15,6 @@ public class Restock {
     public Restock(int idtransaksi) {
         this.idtransaksi = idtransaksi;
     }
-
     
     public Restock( Distributor distributor, Obat obat, Pegawai pegawai) {
         this.distributor = distributor;
