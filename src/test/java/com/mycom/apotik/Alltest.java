@@ -95,13 +95,13 @@ public void employee_input_data_member() throws Exception {
 }
 
 
-
-@Given("^person give data  id = \"([^\"]*)\"  name = \"([^\"]*)\"$")
+@Given("^person give data  id = \"([^\"]*)\" name = \"([^\"]*)\"$")
 public void person_give_data_id_name(String arg1, String arg2) throws Exception {
-    d=new Distributor(Integer.parseInt(arg1));
+   d=new Distributor(Integer.parseInt(arg1));
     d.setNama(arg2);
     Assert.assertNotNull(d);
 }
+
 
 @When("^data not available$")
 public void data_not_available() throws Exception {
