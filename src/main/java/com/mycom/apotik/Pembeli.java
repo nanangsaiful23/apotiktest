@@ -4,15 +4,13 @@ public class Pembeli extends Person{
    private int id;
    private String nama; 
    private String Password;
-
+   
     public Pembeli(int id, String nama,String Password) {
         this.id = id;
         this.nama = nama;
         this.Password=Password;
     }
-
-    public Pembeli() {
-       
+    public Pembeli() {  
     }
 
     public Pembeli(String nama, String Password) {
