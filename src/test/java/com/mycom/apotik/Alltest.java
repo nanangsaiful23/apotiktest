@@ -63,7 +63,7 @@ public void medicine_in_store_limited() throws Exception {
     Assert.assertTrue(result);
 }
 
-@Then("^employee note the medicine;$")
+@Then("^employee note the medicine$")
 public void employee_note_the_medicine() throws Exception {
     d=new Distributor();
     pg=new Pegawai(1);
