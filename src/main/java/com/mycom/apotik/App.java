@@ -87,11 +87,17 @@ public class App {
         }
     }
 
-    public void masukkandatadistributor(String nama, String kontak, String alamat, String password) {
-        Distributor d = new Distributor(nama, kontak, alamat, password);
-        db.savedistributor(d);
-        this.dataDistributors.add(d);
-        this.dataDistributors = db.loaddistributor();
+    public boolean masukkandatadistributor(String nama, String kontak, String alamat, String password) {
+        try {
+            Distributor d = new Distributor(nama, kontak, alamat, password);
+            db.savedistributor(d);
+            this.dataDistributors.add(d);
+            this.dataDistributors = db.loaddistributor();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+        
     }
 
     public boolean masukkanDataPembeli(Pembeli p) {

@@ -93,4 +93,24 @@ public void employee_input_data_member() throws Exception {
   boolean result=app.masukkanDataPembeli(p);
  Assert.assertEquals(expected, result);
 }
+@Given("^person give data  id =\"([^\"]*)\" name=\"([^\"]*)\"$")
+public void person_give_data_id_name(String arg1, String arg2) throws Exception {
+   d=new Distributor(Integer.parseInt(arg1));
+    d.setNama(arg2);
+    Assert.assertNotNull(d);
+}
+
+@When("^data  not available$")
+public void data_not_available() throws Exception {
+    Distributor result= app.caridistributor(d.getIddistributor());
+     Assert.assertNull(result);
+}
+
+@Then("^employee input data distributor$")
+public void employee_input_data_distributor() throws Exception {
+  boolean expected= true;
+  boolean result=app.masukkandatadistributor(d.getNama(),d.getKontak() , d.getAlamat(),"123");
+ Assert.assertEquals(expected, result);
+}
+
 }
